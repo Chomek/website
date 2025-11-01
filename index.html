@@ -1,99 +1,38 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chomekk.</title>
+  <title>Chomek</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    :root { --hacker-green: #00b33c; }
-    html, body { height:100%; margin:0; padding:0; }
-    body {
-      background:#000;
-      color:var(--hacker-green);
-      font-family:'Inter', Arial, Helvetica, sans-serif;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:flex-start;
-      text-align:center;
-      overflow-y:auto;
-      padding-bottom:50px;
-    }
-    #title {
-      font-size:140px;
-      margin:120px 0 20px;
-      color:var(--hacker-green);
-      text-shadow:0 0 10px rgba(0,179,60,0.2);
-      animation:pulse 2s infinite;
-      user-select:none;
-    }
-    #enterBtn {
-      padding:24px 50px;
-      font-size:32px;
-      border-radius:14px;
-      border:2px solid var(--hacker-green);
-      background:transparent;
-      color:var(--hacker-green);
-      cursor:pointer;
-      transition: transform 0.15s, box-shadow 0.15s;
-      margin-bottom:40px;
-    }
-    #enterBtn:hover {
-      transform:scale(1.07);
-      box-shadow:0 0 20px rgba(0,179,60,0.25);
-    }
-    #info {
-      margin-top:40px;
-      width:100%;
-      max-width:1400px;
-      display:none;
-      padding:0 20px;
-      box-sizing:border-box;
-    }
-    .line {
-      font-size:84px;
-      line-height:1.1;
-      margin:22px 0;
-      opacity:0;
-      transform:translateY(-240px);
-      transition: transform 1s cubic-bezier(.22,.9,.3,1), opacity 0.3s ease-in;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      color:var(--hacker-green);
-      text-shadow:0 0 8px rgba(0,179,60,0.15);
-    }
-    .line.show {
-      opacity:1;
-      transform:translateY(0);
-    }
-    @keyframes pulse {
-      0%,100% { transform:scale(1); }
-      50% { transform:scale(1.05); }
-    }
-    @media (max-width:900px){
-      #title { font-size:72px; margin-top:80px; }
-      #enterBtn { font-size:24px; padding:16px 32px; }
-      .line { font-size:42px; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="topWrap" style="width:100%; display:flex; flex-direction:column; align-items:center;">
+  <div id="topWrap">
     <div id="title">Chomek</div>
     <button id="enterBtn">ENTER</button>
   </div>
+  
   <div id="info"></div>
 
+  <!-- Discord ID Modal -->
+  <div id="discordModal" class="modal">
+    <div class="modal-content">
+      <h2>🎁 Discord Reward</h2>
+      <p>Enter your Discord ID to claim your reward:</p>
+      <input type="text" id="discordIdInput" placeholder="123456789012345678" maxlength="18">
+      <div class="modal-buttons">
+        <button id="submitIdBtn" class="submit-btn">Claim Reward</button>
+        <button id="skipIdBtn" class="skip-btn">Skip</button>
+      </div>
+    </div>
+  </div>
 
+  <!-- Music -->
   <audio id="bgMusic" loop>
     <source src="muzyka.mp3" type="audio/mpeg">
-    
+    Your browser does not support audio.
   </audio>
-
 
   <script src="script.js"></script>
 </body>
-
 </html>
-
